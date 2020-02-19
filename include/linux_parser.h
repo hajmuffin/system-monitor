@@ -40,7 +40,7 @@ enum CPUStates {
   kGuest_,
   kGuestNice_
 };
-std::vector<std::string> CpuUtilization();
+std::vector<int> CpuUtilization();
 long Jiffies();
 long ActiveJiffies();
 long ActiveJiffies(int pid);
@@ -52,6 +52,13 @@ std::string Ram(int pid);
 std::string Uid(int pid);
 std::string User(int pid);
 long int UpTime(int pid);
+
+std::string Readfs(std::string filename);
+std::string ReadfsByKey(std::string filename,std::string key);
+std::vector<int> ReadPidStats(int pid);
+
 };  // namespace LinuxParser
+
+
 
 #endif
