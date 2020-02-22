@@ -177,10 +177,10 @@ string LinuxParser::User(int pid) {
 
 long LinuxParser::UpTime(int pid) { 
   long piduptime;
-  vector<int> pid_values;
+  vector<string> pid_values;
   pid_values = LinuxParser::ReadPidStats(pid);
-  piduptime = LinuxParser::UpTime() - pid_values[21];
-  return piduptime;
+  piduptime = LinuxParser::UpTime() - (std::stoi(pid_values[21]) / sysconf(_SC_CLK_TCK));
+  return piduptime; 
   }
 
 string LinuxParser::Readfs(string filename){
@@ -207,10 +207,10 @@ string LinuxParser::ReadfsByKey(string filename,string key){
     }
     return value;
 }
-vector<int> LinuxParser::ReadPidStats(int pid){
-  vector<int> pid_values;
+vector<string> LinuxParser::ReadPidStats(int pid){
+  vector<string> pid_values;
   string line;
-  int value;
+  string value;
   std::ifstream stream(kProcDirectory + to_string(pid) + kStatFilename);
   if (stream.is_open()) {
      while (std::getline(stream, line)) {

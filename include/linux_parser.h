@@ -4,6 +4,7 @@
 #include <fstream>
 #include <regex>
 #include <string>
+#include <vector>
 
 namespace LinuxParser {
 // Paths
@@ -55,7 +56,7 @@ long int UpTime(int pid);
 
 std::string Readfs(std::string filename);
 std::string ReadfsByKey(std::string filename,std::string key);
-std::vector<int> ReadPidStats(int pid);
+std::vector<std::string> ReadPidStats(int pid);
 
 };  // namespace LinuxParser
 

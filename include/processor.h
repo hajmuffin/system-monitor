@@ -28,6 +28,8 @@ class Processor {
 
     float cpu_usage;
     std::vector<int> cpu_values;
+    std::vector<int> cpu_values1;
+
 };
 
 #endif
