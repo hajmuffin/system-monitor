@@ -74,7 +74,7 @@ float LinuxParser::MemoryUtilization() {
 }
   
 long LinuxParser::UpTime() {
-  long uptime = stoi(LinuxParser::Readfs(kProcDirectory + kUptimeFilename));
+  long uptime = stol(LinuxParser::Readfs(kProcDirectory + kUptimeFilename));
   return uptime;
 }
 
@@ -173,7 +173,7 @@ long LinuxParser::UpTime(int pid) {
   vector<string> pid_values;
   pid_values = ReadPidStats(pid);
   long starttime = std::stol(pid_values[21]);
-  piduptime = UpTime() - starttime;
+  piduptime = UpTime() - (starttime / sysconf(_SC_CLK_TCK));
   return piduptime; 
   }
 

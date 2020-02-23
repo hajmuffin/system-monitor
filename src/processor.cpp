@@ -1,7 +1,6 @@
 #include "processor.h"
 #include "linux_parser.h"
 
-// TODO: Return the aggregate CPU utilization
 float Processor::Utilization() { 
     cpu_values = LinuxParser::CpuUtilization();
     user = cpu_values[0];
