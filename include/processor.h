@@ -6,6 +6,7 @@
 class Processor {
  public:
   float Utilization();  // TODO: See src/processor.cpp
+  void Prevalues(std::vector<int> values);
 
   // TODO: Declare any necessary private members
  private:
@@ -28,7 +29,6 @@ class Processor {
 
     float cpu_usage;
     std::vector<int> cpu_values;
-    std::vector<int> cpu_values1;
 
 };
 

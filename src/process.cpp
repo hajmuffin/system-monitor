@@ -11,7 +11,7 @@ using std::string;
 using std::to_string;
 using std::vector;
 
-Process::Process(int pid,string user,string command) : pid_(pid) {}
+Process::Process(int pid,string user,string command) : pid_(pid),user_(user),command_(command) {}
 
 // TODO: Return this process's ID
 int Process::Pid() { return pid_; }

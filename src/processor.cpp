@@ -24,19 +24,20 @@ float Processor::Utilization() {
 
     int Totald = Total - PrevTotal;
     int Idled = Idle - PrevIdle;
-
-    cpu_values1 = LinuxParser::CpuUtilization();
-
-    prevuser = cpu_values1[0];
-    prevnice = cpu_values1[1];
-    prevsystem = cpu_values1[2];
-    previdle = cpu_values1[3];
-    previowait = cpu_values1[4];
-    previrq = cpu_values1[5];
-    prevsoftirq = cpu_values1[6];
-    prevsteal = cpu_values1[7]; 
-    
     cpu_usage = (Totald - Idled)/Totald;
     
+    Prevalues(cpu_values);
     return cpu_usage; 
+}
+
+void Processor::Prevalues(std::vector<int> values){
+
+    prevuser = values[0];
+    prevnice = values[1];
+    prevsystem = values[2];
+    previdle = values[3];
+    previowait = values[4];
+    previrq = values[5];
+    prevsoftirq = values[6];
+    prevsteal = values[7]; 
 }
