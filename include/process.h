@@ -20,7 +20,7 @@ class Process {
   // TODO: Declare any necessary private members
  private:
  int pid_;
- int cpu_;
+ float cpu_;
  std::string user_{};
  std::string command_{};
 };
